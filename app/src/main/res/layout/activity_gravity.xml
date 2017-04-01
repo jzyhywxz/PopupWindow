@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zzw.popupwindow.activity.GravityActivity">
+
+    <Button
+        android:text="Click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/gravity_bt"
+        android:background="@drawable/click_bg"
+        android:textColor="@android:color/white" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:id="@+id/vert_rb_group"
+        android:layout_marginTop="10dp">
+
+        <RadioButton
+            android:text="AA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/align_above_rb"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="AB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/align_bottom_rb"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="CV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/center_vert_rb"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="TB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/to_bottom_rb"
+            android:layout_weight="1"
+            android:checked="true" />
+
+        <RadioButton
+            android:text="TA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/to_above_rb"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/vert_rb_group"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:id="@+id/hori_rb_group">
+
+        <RadioButton
+            android:text="AL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/align_left_rb"
+            android:layout_weight="1"
+            android:checked="true" />
+
+        <RadioButton
+            android:text="AR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/align_right_rb"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="CH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/center_hori_rb"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="TR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/to_right_rb"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="TL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/to_left_rb"
+            android:layout_weight="1" />
+    </RadioGroup>
+</RelativeLayout>
