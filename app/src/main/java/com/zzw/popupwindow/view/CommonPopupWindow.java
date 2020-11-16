@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.PopupWindow;
 
 /**
@@ -46,7 +47,23 @@ public abstract class CommonPopupWindow {
         mInstance.setTouchable(true);
     }
 
-    public void showBashOfAnchor(View anchor, LayoutGravity layoutGravity, int xmerge, int ymerge) {
+    public void showBashOfAnchor(final View anchor, final LayoutGravity layoutGravity, final int xmerge, final int ymerge) {
+        final View view = mInstance.getContentView();
+        if (view.getWidth() == 0) {
+            mInstance.showAsDropDown(anchor); // 只是为了绘制内容，以便获取正确的高宽
+            view.getViewTreeObserver()
+                    .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                        @Override
+                        public void onGlobalLayout() {
+                            view.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                            mInstance.dismiss();
+
+                            int[] offset = layoutGravity.getOffset(anchor, mInstance);
+                            mInstance.showAsDropDown(anchor, offset[0] + xmerge, offset[1] + ymerge);
+                        }
+                    });
+        }
+
         int[] offset = layoutGravity.getOffset(anchor, mInstance);
         mInstance.showAsDropDown(anchor, offset[0] + xmerge, offset[1] + ymerge);
     }
